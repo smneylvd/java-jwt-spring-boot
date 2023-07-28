@@ -1,0 +1,35 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+      poll-interval: '2s'
+      quiet-period: '1s'
+      additional-paths:
+        - src/main/java/
+    livereload:
+      enabled: true
+    web:
+      resources:
+        static-locations: file:src/main/resources/static/, classpath:/static/
+        cache:
+          period: 0
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt_security
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  debug: true
